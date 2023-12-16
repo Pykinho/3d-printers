@@ -12,31 +12,46 @@ function Navbar() {
 
   const showSidebar = () => setSideBar(!sidebar);
   return (
+    // <StyledNavbar>
+
     <StyledNavbar>
+      <div className="navbar">Dupa</div>
       <IconContext.Provider value={{ color: "#fff" }}>
-        <div className="navbar">
-          <Link to="#" className="menu-bars">
-            <FaIcons.FaBars onClick={showSidebar} />
-          </Link>
-        </div>
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-          <ul className="nav-menu-items">
-            <li className="navbar-toggle">
-              <Link to="#" className="menu-bars" onClick={showSidebar}>
-                <AiIcons.AiOutlineClose></AiIcons.AiOutlineClose>
-              </Link>
-            </li>
-            {Sidebar.map((item, index) => {
-              return (
-                <li key={index} className={item.className}>
-                  <Link to={item.path}>
-                    {item.icon}
-                    <span>{item.title}</span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
+        <nav className={sidebar ? "nav-menu expanded" : "nav-menu"}>
+          {sidebar ? (
+            <ul className="nav-menu-items">
+              {Sidebar.map((item, index) => {
+                return (
+                  <li key={index} className={item.className}>
+                    <Link to={item.path}>
+                      {item.icon}
+                      <span>{item.title}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+              <li className="navbar-toggle">
+                <Link to="#" onClick={showSidebar}>
+                  <FaIcons.FaRegArrowAltCircleLeft></FaIcons.FaRegArrowAltCircleLeft>
+                </Link>
+              </li>
+            </ul>
+          ) : (
+            <ul className="nav-menu-items">
+              {Sidebar.map((item, index) => {
+                return (
+                  <li key={index} className={item.className}>
+                    <Link to={item.path}>{item.icon}</Link>
+                  </li>
+                );
+              })}
+              <li className="navbar-toggle">
+                <Link to="#" onClick={showSidebar}>
+                  <FaIcons.FaRegArrowAltCircleRight></FaIcons.FaRegArrowAltCircleRight>
+                </Link>
+              </li>
+            </ul>
+          )}
         </nav>
       </IconContext.Provider>
     </StyledNavbar>
