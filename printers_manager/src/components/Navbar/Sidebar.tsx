@@ -10,8 +10,8 @@ export const Sidebar = [
     className: "nav-text",
   },
   {
-    title: "Printers",
-    path: "/printers",
+    title: "Schedule",
+    path: "/schedule",
     icon: <LuIcons.LuPrinter />,
     className: "nav-text",
   },
@@ -28,4 +28,3 @@ export const Sidebar = [
     className: "nav-text",
   },
 ];
-export {};
