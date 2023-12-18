@@ -25,6 +25,7 @@ export const StyledModalWindow = styled.div`
     padding: 14px 28px;
     border-radius: 3px;
     width: 600px;
+    border-radius: 8px;
   }
 
   .close-modal {
